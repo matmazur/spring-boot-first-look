@@ -15,11 +15,13 @@ public class SpringDemoApplication {
 
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext context = SpringApplication.run(SpringDemoApplication.class,args);
+//        --- Was working in prework without using Spring Boot---
+//        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext((SpringDemoApplication.class));
+        ConfigurableApplicationContext context = SpringApplication.run(SpringDemoApplication.class, args);
 
         DatabaseDatasource ds = context.getBean(DatabaseDatasource.class);
 
-        List<String> list  = ds.getDatabase();
+        List<String> list = ds.getDatabase();
         list.forEach(System.out::println);
 
         System.out.println("Some nonsense");
